@@ -40,7 +40,7 @@ useradd $newusername -m -G sudo -s /bin/bash
 passwd $newusername
 
 echo install vimrc
-wget https://raw.githubusercontent.com/ilya034/VPSBasicConfigure/refs/heads/master/.vimrc
+curl -sLO https://github.com/ilya034/VPSBasicConfigure/raw/master/.vimrc
 
 echo configure key auth
 mkdir /home/$newusername/.ssh
