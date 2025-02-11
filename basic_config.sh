@@ -12,6 +12,13 @@ apt update && apt upgrade -y
 echo install xray
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
 
+echo configure xray logs
+cd /var/log
+touch xray/access.log xray/error.log
+chmod 775 -R xray
+chown nobody:nogroup -R xray
+cd
+
 echo install nginx
 sudo apt install curl gnupg2 ca-certificates lsb-release ubuntu-keyring
 curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
@@ -31,6 +38,9 @@ wget -O -  https://get.acme.sh | sh -s email=$newusernamek@gmail.com
 echo add new user
 useradd $newusername -m -G sudo -s /bin/bash
 passwd $newusername
+
+echo install vimrc
+wget https://raw.githubusercontent.com/ilya034/VPSBasicConfigure/refs/heads/master/.vimrc
 
 echo configure key auth
 mkdir /home/$newusername/.ssh
