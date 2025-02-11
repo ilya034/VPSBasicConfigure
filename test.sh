@@ -7,4 +7,4 @@ do
     esac
 done
 
-echo $arg
+echo "$arg"
