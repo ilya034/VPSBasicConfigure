@@ -9,8 +9,12 @@ done
 
 apt update && apt upgrade -y
 
+echo add new user
+useradd $newusername -m -G sudo -s /bin/bash
+passwd $newusername
+
 echo install xray
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u &newusername
 
 echo configure xray logs
 cd /var/log
@@ -34,10 +38,6 @@ apt install nginx
 
 echo install acme.sh
 wget -O -  https://get.acme.sh | sh -s email=$newusernamek@gmail.com
-
-echo add new user
-useradd $newusername -m -G sudo -s /bin/bash
-passwd $newusername
 
 echo install vimrc
 curl -sLO https://github.com/ilya034/VPSBasicConfigure/raw/master/.vimrc
