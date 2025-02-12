@@ -37,7 +37,7 @@ apt update
 apt install nginx
 
 echo install acme.sh
-wget -O -  https://get.acme.sh | sh -s email=$newusernamek@gmail.com
+wget -O -  https://get.acme.sh | sh -s email="$newusername"k@gmail.com
 
 echo install vimrc
 curl -sLO https://github.com/ilya034/VPSBasicConfigure/raw/master/.vimrc
