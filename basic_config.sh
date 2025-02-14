@@ -5,6 +5,7 @@ do
     case "${flag}" in
         u) new_user_name=${OPTARG};;
         p) new_ssh_port=${OPTARG};;
+        e) acme_email=${OPTARG};;
     esac
 done
 
@@ -22,8 +23,9 @@ clear
 
 echo configure xray logs
 cd /var/log
+mkdir xray/
 touch xray/access.log xray/error.log
-chmod 775 -R xray
+chmod 755 -R xray
 chown nobody:nogroup -R xray
 cd
 clear
@@ -43,7 +45,7 @@ apt install nginx -y
 clear
 
 echo install acme.sh
-wget -O -  https://get.acme.sh | sh -s email="$new_user_name"k@gmail.com
+wget -O -  https://get.acme.sh | sh -s email="$acme_email"
 clear
 
 echo install vimrc
@@ -55,3 +57,8 @@ touch /home/$new_user_name/.ssh/authorized_keys
 chown $new_user_name:$new_user_name -R /home/$new_user_name/.ssh
 chmod 700 /home/$new_user_name/.ssh
 chmod 600 /home/$new_user_name/.ssh/authorized_keys
+clear
+
+echo edit sshd_config
+curl -slo /etc/ssh/sshd_config.d/updated.conf https://github.com/ilya034/VPSBasicConfigure/raw/master/sshd.conf
+echo "Port $new_ssh_port" >> /etc/ssh/sshd_config.d/updated.conf
