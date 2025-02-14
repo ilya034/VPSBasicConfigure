@@ -60,5 +60,5 @@ chmod 600 /home/$new_user_name/.ssh/authorized_keys
 clear
 
 echo edit sshd_config
-curl -slo /etc/ssh/sshd_config.d/updated.conf https://github.com/ilya034/VPSBasicConfigure/raw/master/sshd.conf
+curl -sLo /etc/ssh/sshd_config.d/updated.conf https://github.com/ilya034/VPSBasicConfigure/raw/master/sshd.conf
 echo "Port $new_ssh_port" >> /etc/ssh/sshd_config.d/updated.conf
