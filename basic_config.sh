@@ -18,16 +18,8 @@ passwd $new_user_name
 clear
 
 echo install xray
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u $new_user_name
-clear
-
-echo configure xray logs
-cd /var/log
-mkdir xray/
-touch xray/access.log xray/error.log
-chmod 755 -R xray
-chown nobody:nogroup -R xray
-cd
+uuseradd -M xray
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u xray
 clear
 
 echo install nginx
