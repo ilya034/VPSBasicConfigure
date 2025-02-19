@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts u: flag
+while getopts :u:p:e flag
 do
     case "${flag}" in
         u) new_user_name=${OPTARG};;
