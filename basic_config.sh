@@ -18,7 +18,7 @@ passwd $new_user_name
 clear
 
 echo install xray
-uuseradd -M xray
+useradd -M xray
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u xray
 clear
 
