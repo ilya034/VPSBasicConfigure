@@ -60,3 +60,4 @@ clear
 echo edit sshd_config
 curl -sLo /etc/ssh/sshd_config.d/updated.conf https://github.com/ilya034/VPSBasicConfigure/raw/master/sshd.conf
 echo "Port $new_ssh_port" >> /etc/ssh/sshd_config.d/updated.conf
+echo "Include /etc/ssh/sshd_config.d/*.conf" >> /etc/ssh/sshd_config
