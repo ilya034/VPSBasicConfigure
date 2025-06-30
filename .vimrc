@@ -62,4 +62,3 @@ set si
 set wrap
 
 set background=dark
-colorscheme delek
