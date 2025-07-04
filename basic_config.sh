@@ -4,7 +4,7 @@ set -e
 
 NEW_USER_NAME=ilya034
 PUBLIC_SSH_KEY=""
-NEW_SSH_PROT=22
+NEW_SSH_PORT=22
 
 while getopts :u:k:p flag
 do
