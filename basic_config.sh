@@ -36,10 +36,10 @@ apt install nginx -y
 useradd -M xray
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u xray
 
-useradd $NEW_USER_NAME -m -G sudo -s /bin/bash
+useradd ${NEW_USER_NAME} -m -G sudo -s /bin/bash
 
 curl -sLO https://github.com/ilya034/VPSBasicConfigure/raw/master/.vimrc
-cp .vimrc /home/$NEW_USER_NAME/
+cp .vimrc /home/${NEW_USER_NAME}/
 
 mkdir -p /home/${NEW_USER_NAME}/.ssh
 echo "${PUBLIC_SSH_KEY}" > /home/${NEW_USER_NAME}/.ssh/authorized_keys
@@ -48,5 +48,5 @@ chmod 700 /home/${NEW_USER_NAME}/.ssh
 chmod 600 /home/${NEW_USER_NAME}/.ssh/authorized_keys
 
 curl -sLo /etc/ssh/sshd_config.d/updated.conf https://github.com/ilya034/VPSBasicConfigure/raw/master/sshd.conf
-echo "Port $NEW_SSH_PORT" >> /etc/ssh/sshd_config.d/updated.conf
+echo "Port ${NEW_SSH_PORT}" >> /etc/ssh/sshd_config.d/updated.conf
 echo "Include /etc/ssh/sshd_config.d/updated.conf" >> /etc/ssh/sshd_config
