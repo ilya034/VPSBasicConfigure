@@ -37,7 +37,6 @@ useradd -M xray
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u xray
 
 useradd $NEW_USER_NAME -m -G sudo -s /bin/bash
-passwd $NEW_USER_NAME
 
 curl -sLO https://github.com/ilya034/VPSBasicConfigure/raw/master/.vimrc
 cp .vimrc /home/$NEW_USER_NAME/
