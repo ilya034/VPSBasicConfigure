@@ -49,4 +49,4 @@ chmod 600 /home/${NEW_USER_NAME}/.ssh/authorized_keys
 
 curl -sLo /etc/ssh/sshd_config.d/updated.conf https://github.com/ilya034/VPSBasicConfigure/raw/master/sshd.conf
 echo "Port $NEW_SSH_PORT" >> /etc/ssh/sshd_config.d/updated.conf
-echo "Include /etc/ssh/sshd_config.d/*.conf" >> /etc/ssh/sshd_config
+echo "Include /etc/ssh/sshd_config.d/updated.conf" >> /etc/ssh/sshd_config
