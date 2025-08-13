@@ -20,7 +20,7 @@ do
 done
 
 apt update && apt upgrade -y
-apt install git htop vim wget curl speedtest-cli gnupg2 ca-certificates lsb-release ubuntu-keyring -y
+apt install git htop vim wget curl net-tools speedtest-cli gnupg2 ca-certificates lsb-release ubuntu-keyring -y
 
 curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
     | tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
